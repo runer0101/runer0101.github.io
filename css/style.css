@@ -377,8 +377,19 @@ nav ul a.active::after {
 }
 
 .skill-card .skill-icon {
-    font-size: 2rem;
+    color: var(--text-dim);
     margin-bottom: 0.6rem;
+    line-height: 0;
+    transition: color 0.3s ease;
+}
+
+.skill-card .skill-icon svg {
+    width: 36px;
+    height: 36px;
+}
+
+.skill-card:hover .skill-icon {
+    color: var(--accent);
 }
 
 .skill-card .skill-name {
@@ -414,8 +425,19 @@ nav ul a.active::after {
 }
 
 .certificate-card .cert-icon {
-    font-size: 1.8rem;
+    color: var(--text-dim);
     flex-shrink: 0;
+    line-height: 0;
+    transition: color 0.3s ease;
+}
+
+.certificate-card .cert-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.certificate-card:hover .cert-icon {
+    color: var(--accent2);
 }
 
 .certificate-card .cert-info h4 {
@@ -554,7 +576,18 @@ nav ul a.active::after {
 }
 
 .contact-link .contact-icon {
-    font-size: 1.3rem;
+    color: var(--text-dim);
+    line-height: 0;
+    transition: color 0.3s ease;
+}
+
+.contact-link .contact-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.contact-link:hover .contact-icon {
+    color: var(--accent);
 }
 
 /* ============================================
@@ -566,6 +599,12 @@ footer {
     border-top: 1px solid var(--border);
     color: var(--text-dim);
     font-size: 0.8rem;
+}
+
+footer .heart-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 2px;
 }
 
 /* ============================================
