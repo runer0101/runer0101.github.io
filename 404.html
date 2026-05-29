@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>404 — Runer</title>
+        <meta name="color-scheme" content="dark" />
+        <style>
+            :root {
+                --bg: #0a0a0f;
+                --accent: #00ff88;
+                --text: #e8e8f0;
+                --text-dim: #888899;
+            }
+
+            * { margin: 0; padding: 0; box-sizing: border-box; }
+
+            body {
+                font-family: "Space Mono", "Courier New", monospace;
+                background: var(--bg);
+                color: var(--text);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                text-align: center;
+                padding: 2rem;
+            }
+
+            .code {
+                font-size: clamp(5rem, 15vw, 10rem);
+                font-weight: 700;
+                color: var(--accent);
+                line-height: 1;
+                margin-bottom: 0.5rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+                font-weight: 400;
+                color: var(--text-dim);
+                margin-bottom: 0.5rem;
+            }
+
+            p {
+                font-size: 0.9rem;
+                color: var(--text-dim);
+                margin-bottom: 2rem;
+                max-width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            a {
+                display: inline-block;
+                font-weight: 700;
+                font-size: 0.9rem;
+                color: var(--accent);
+                border: 2px solid var(--accent);
+                padding: 0.75rem 2rem;
+                border-radius: 12px;
+                text-decoration: none;
+                transition: all 0.25s;
+            }
+
+            a:hover {
+                background: var(--accent);
+                color: var(--bg);
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <div class="code">404</div>
+            <h1>Página no encontrada</h1>
+            <p>La ruta que buscas no existe o fue movida. Volvé al inicio y empecemos de nuevo.</p>
+            <a href="/">Volver al inicio</a>
+        </div>
+    </body>
+</html>

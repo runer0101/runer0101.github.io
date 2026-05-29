@@ -113,6 +113,28 @@ section {
 }
 
 /* ============================================
+   SKIP LINK
+   ============================================ */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    z-index: 200;
+    font-family: "Space Mono", monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    background: var(--accent);
+    color: var(--bg);
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--radius);
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 0.75rem;
+}
+
+/* ============================================
    NAVIGATION
    ============================================ */
 nav {
@@ -537,6 +559,16 @@ nav ul a.active::after {
     color: var(--accent2);
 }
 
+.project-card .project-link--soon {
+    color: var(--text-dim);
+    cursor: default;
+    opacity: 0.5;
+}
+
+.project-card .project-link--soon:hover {
+    color: var(--text-dim);
+}
+
 /* ============================================
    CONTACT
    ============================================ */
@@ -765,5 +797,51 @@ footer .heart-icon {
     .contact-links {
         flex-direction: column;
         align-items: center;
+    }
+}
+
+/* ============================================
+   PRINT
+   ============================================ */
+@media print {
+    nav,
+    .skip-link,
+    #langBtn,
+    #menuToggle,
+    #hero::after,
+    body::before {
+        display: none !important;
+    }
+
+    body {
+        background: #fff;
+        color: #000;
+        font-size: 12pt;
+    }
+
+    section {
+        padding: 1.5rem 0;
+        max-width: 100%;
+        break-inside: avoid;
+    }
+
+    .skill-card,
+    .certificate-card,
+    .project-card,
+    .contact-link {
+        background: #f5f5f5;
+        border: 1px solid #ccc;
+        break-inside: avoid;
+    }
+
+    a {
+        color: #0066cc;
+        text-decoration: underline;
+    }
+
+    .reveal,
+    .reveal-children > * {
+        opacity: 1 !important;
+        transform: none !important;
     }
 }
