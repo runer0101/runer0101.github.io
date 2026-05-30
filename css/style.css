@@ -510,6 +510,11 @@ nav ul a.active::after {
     box-shadow: 0 12px 40px rgba(0, 255, 136, 0.06);
 }
 
+.project-card--featured {
+    border-color: rgba(0, 255, 136, 0.2);
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.03), var(--bg2));
+}
+
 .project-card h3 {
     font-family: "Syne", sans-serif;
     font-size: 1.3rem;
