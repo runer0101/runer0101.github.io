@@ -405,13 +405,25 @@ nav ul a.active::after {
     transition: color 0.3s ease;
 }
 
-.skill-card .skill-icon svg {
+.skill-card .skill-icon svg,
+.skill-card .skill-icon img {
     width: 36px;
     height: 36px;
 }
 
+.skill-card .skill-icon img {
+    opacity: 0.35;
+    filter: grayscale(0.6);
+    transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
 .skill-card:hover .skill-icon {
     color: var(--accent);
+}
+
+.skill-card:hover .skill-icon img {
+    opacity: 1;
+    filter: grayscale(0);
 }
 
 .skill-card .skill-name {
