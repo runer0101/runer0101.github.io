@@ -403,19 +403,19 @@ nav ul a.active::after {
     margin-bottom: 0.6rem;
     line-height: 0;
     transition: color 0.3s ease;
+    display: flex;
+    justify-content: center;
 }
 
 .skill-card .skill-icon svg,
 .skill-card .skill-icon img {
     width: 36px;
     height: 36px;
-    display: block;
-    margin: 0 auto;
 }
 
 .skill-card .skill-icon img {
-    opacity: 0.6;
-    transition: opacity 0.3s ease, filter 0.3s ease;
+    filter: brightness(0.5) saturate(0.2);
+    transition: filter 0.3s ease, transform 0.3s ease;
 }
 
 .skill-card:hover .skill-icon {
@@ -423,7 +423,7 @@ nav ul a.active::after {
 }
 
 .skill-card:hover .skill-icon img {
-    opacity: 1;
+    filter: brightness(1) saturate(1);
 }
 
 .skill-card .skill-name {
