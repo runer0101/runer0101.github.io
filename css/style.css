@@ -407,23 +407,13 @@ nav ul a.active::after {
     justify-content: center;
 }
 
-.skill-card .skill-icon svg,
-.skill-card .skill-icon img {
+.skill-card .skill-icon svg {
     width: 36px;
     height: 36px;
 }
 
-.skill-card .skill-icon img {
-    filter: brightness(0.5) saturate(0.2);
-    transition: filter 0.3s ease, transform 0.3s ease;
-}
-
 .skill-card:hover .skill-icon {
     color: var(--accent);
-}
-
-.skill-card:hover .skill-icon img {
-    filter: brightness(1) saturate(1);
 }
 
 .skill-card .skill-name {
