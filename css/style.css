@@ -423,6 +423,18 @@ nav ul a.active::after {
 /* ============================================
    CERTIFICATES
    ============================================ */
+.certs-category {
+    font-family: "Syne", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 2rem 0 1rem;
+}
+
+.certs-category:first-of-type {
+    margin-top: 0;
+}
+
 #certificates .certificates-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
