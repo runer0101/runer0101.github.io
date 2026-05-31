@@ -411,6 +411,7 @@ nav ul a.active::after {
 .skill-card .skill-icon img {
     width: 36px;
     height: 36px;
+    object-fit: contain;
 }
 
 .skill-card .skill-icon img {
@@ -462,6 +463,8 @@ nav ul a.active::after {
     align-items: flex-start;
     gap: 1rem;
     transition: all 0.3s ease;
+    min-width: 0;
+    overflow-wrap: break-word;
 }
 
 .certificate-card:hover {
@@ -526,6 +529,8 @@ nav ul a.active::after {
     display: flex;
     flex-direction: column;
     transition: all 0.3s ease;
+    min-width: 0;
+    overflow-wrap: break-word;
 }
 
 .project-card:hover {
@@ -558,6 +563,7 @@ nav ul a.active::after {
     flex-wrap: wrap;
     gap: 0.4rem;
     margin-bottom: 1.2rem;
+    min-width: 0;
 }
 
 .project-card .project-tech span {
@@ -799,11 +805,15 @@ footer {
     }
 
     .certificates-grid {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
     }
 
     .projects-grid {
         grid-template-columns: 1fr !important;
+    }
+
+    .certs-category {
+        font-size: 1rem;
     }
 
     #contact h2::after {
@@ -813,13 +823,67 @@ footer {
 }
 
 @media (max-width: 480px) {
+    section {
+        padding: 3rem 1rem;
+    }
+
     .skills-grid {
         grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .certificates-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .certificate-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.2rem;
     }
 
     .contact-links {
         flex-direction: column;
         align-items: center;
+    }
+
+    .contact-link {
+        width: 100%;
+        justify-content: center;
+    }
+
+    footer {
+        font-size: 0.7rem;
+        padding: 1.5rem 1rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.6rem;
+    }
+
+    .skill-card {
+        padding: 1rem 0.5rem;
+    }
+
+    .skill-card .skill-icon svg,
+    .skill-card .skill-icon img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .skill-card .skill-name {
+        font-size: 0.75rem;
+    }
+
+    .project-card {
+        padding: 1.2rem;
+    }
+
+    .btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.8rem;
     }
 }
 
