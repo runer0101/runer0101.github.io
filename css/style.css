@@ -454,6 +454,10 @@ nav ul a.active::after {
     gap: 1.5rem;
 }
 
+#certificates .certificates-grid .certificate-card:only-of-type {
+    max-width: 450px;
+}
+
 .certificate-card {
     background: var(--bg2);
     border: 1px solid var(--border);
@@ -478,11 +482,25 @@ nav ul a.active::after {
     flex-shrink: 0;
     line-height: 0;
     transition: color 0.3s ease;
+    display: flex;
+    justify-content: center;
 }
 
-.certificate-card .cert-icon svg {
-    width: 28px;
-    height: 28px;
+.certificate-card .cert-icon svg,
+.certificate-card .cert-icon img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+.certificate-card .cert-icon img {
+    filter: grayscale(1) brightness(0.75) contrast(0.85);
+    transition: filter 0.4s ease;
+}
+
+.certificate-card:hover .cert-icon img,
+.cert-icon:hover img {
+    filter: grayscale(0) brightness(1);
 }
 
 .certificate-card:hover .cert-icon {
