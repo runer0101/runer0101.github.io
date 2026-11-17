@@ -1,6 +1,7 @@
 # runer0101.github.io
 
-Personal portfolio built with vanilla HTML, CSS, and JavaScript. Bilingual (EN/ES), responsive, dark theme, scroll animations.
+Personal portfolio built with vanilla HTML, CSS, and JavaScript. Bilingual (EN/ES), responsive, dark
+theme, scroll animations.
 
 **[runer0101.github.io](https://runer0101.github.io)**
 
@@ -10,19 +11,37 @@ Personal portfolio built with vanilla HTML, CSS, and JavaScript. Bilingual (EN/E
 
 ## Features
 
-- Bilingual (Spanish / English) with localStorage persistence
+- Bilingual (Spanish / English) with `localStorage` persistence; the switch also translates the
+  document title, the description and the Open Graph tags
 - Dark theme with green & blue accents
-- Scroll-triggered reveal animations
-- Mobile responsive with hamburger menu
-- Skip-to-content accessibility link
-- Print stylesheet
-- No frameworks, no dependencies — zero JS bundle
+- Scroll-triggered reveal animations that only hide content while JavaScript runs, and that switch
+  off under `prefers-reduced-motion`
+- Mobile responsive with an accessible hamburger menu (`aria-expanded`, Escape to close)
+- Skip-to-content link, print stylesheet
+- No frameworks, no build step, no runtime JavaScript dependency
+
+## Assets
+
+- `icons/` — self-hosted technology icons, referenced as `icons/<name>.svg`. No CDN hotlinks.
+- `certificates/` — the PDF or image of each credential. File names are lowercase kebab-case and
+  describe what the document actually is: `<topic>-<issuer>.<ext>`.
+- `og-image.png` — 1200×630 social preview.
+- Fonts are the only external request: Space Mono and Syne from Google Fonts.
 
 ## Sections
 
 - **Hero** — Introduction and CTA
 - **About** — Background and current focus
 - **Skills** — Technology grid
-- **Certificates** — Downloadable PDFs
 - **Projects** — Featured work with live links
-- **Contact** — Email and GitHub
+- **Certificates** — Downloadable credentials, newest category first
+- **Contact** — Email, GitHub and LinkedIn
+
+## Local preview
+
+No build step: open `index.html`, or serve the folder with `python3 -m http.server`.
+
+## Publishing
+
+GitHub Pages serves `main` from the repository root. `sitemap.xml`, `robots.txt` and the JSON-LD
+`Person` block in `index.html` describe the site to crawlers.
