@@ -3,8 +3,9 @@
 ## HTML
 
 - Use semantic HTML5 elements.
-- Every user-visible string carries both `data-es` and `data-en`; the Spanish text is the default
-  inner text so the page is correct without JavaScript.
+- Strings that differ between Spanish and English carry both `data-es` and `data-en`; strings that are
+  identical in both (proper nouns, brand names, technology names) are not violations. The Spanish
+  text is the default inner text so the page is correct without JavaScript.
 - `title`, `meta description` and the Open Graph/Twitter tags carry their text in
   `data-es-content` / `data-en-content`.
 - Sections use `class="reveal"`; children grids use `reveal-children`.
