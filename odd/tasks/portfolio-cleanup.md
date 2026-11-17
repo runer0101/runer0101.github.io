@@ -63,3 +63,8 @@ file it links to, and the page must stay readable without JavaScript.
   page spilling sideways. Every card now links a PNG render (1400 px long edge, 1200 for the two
   OpenIT scans so they are not invented) and the browser fits it to the window. The original PDFs
   stay in `certificates/` as the source of the render.
+- **L6** (verbatim request): «me gusta, pero colaque al lado una opcion para que lo descargue en pdf si es que lo desecita o para los reclutadores»
+  Decision: each card became a container with two explicit actions — "Ver certificado" (PNG
+  render, fitted to the window) and "Descargar PDF" (`download` attribute) — because an `<a>`
+  inside a card-level `<a>` would be invalid HTML. The NASA PDF is restored and HACK4U's image is
+  wrapped in a PDF, so all 19 credentials offer both files.

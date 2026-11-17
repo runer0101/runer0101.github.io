@@ -34,9 +34,12 @@
   file there instead of hotlinking a CDN.
 - Certificate files use lowercase kebab-case names that describe the document:
   `<topic>-<issuer>.<ext>`. No spaces, UUIDs or personal email in a file name.
-- A card links the PNG render of the page (`<topic>-<issuer>.png`), never the PDF: page formats
-  differ (A4 portrait, letter landscape, 930×630), so PDF links open at a different zoom each time.
-  Render with `pdftoppm -png -scale-to 1400 <src>.pdf <name>`; keep the PDF beside it as the source.
+- A card is a container with two explicit actions, never a single wrapping link (an `<a>` inside
+  an `<a>` is invalid): "Ver certificado" opens the PNG render, "Descargar PDF" downloads the
+  document with the `download` attribute. Page formats differ (A4 portrait, letter landscape,
+  930×630), so the PDF is never the thing that opens in the browser.
+- Render with `pdftoppm -png -scale-to 1400 <src>.pdf <name>` and keep the PDF beside the render:
+  every card must have both files.
 - Fonts load through a `<link rel="stylesheet">` in `<head>`; never `@import` in CSS.
 
 ## General

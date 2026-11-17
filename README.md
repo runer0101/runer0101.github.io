@@ -23,10 +23,13 @@ theme, scroll animations.
 ## Assets
 
 - `icons/` — self-hosted technology icons, referenced as `icons/<name>.svg`. No CDN hotlinks.
-- `certificates/` — each credential as a PNG render at 1400 px on the long edge, with the original
-  PDF beside it as the source. Cards link the image, so every certificate opens fitted to the
-  window whatever its page format. File names are lowercase kebab-case:
-  `<topic>-<issuer>.png`.
+- `certificates/` — each credential as a PNG render at 1400 px on the long edge plus its PDF.
+  Every card offers two actions: **Ver certificado** opens the image, which the browser fits to the
+  window whatever the page format, and **Descargar PDF** downloads the document itself for anyone
+  who needs the file — a recruiter, an application form. File names are lowercase kebab-case:
+  `<topic>-<issuer>.png` with `<topic>-<issuer>.pdf` beside it.
+  HACK4U delivered only an image, so `arch-linux-hack4u.pdf` is that image wrapped in a PDF;
+  every other PDF is the document issued by the institution.
 - `og-image.png` — 1200×630 social preview.
 - Fonts are the only external request: Space Mono and Syne from Google Fonts.
 
