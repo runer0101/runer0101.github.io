@@ -57,3 +57,9 @@ file it links to, and the page must stay readable without JavaScript.
   Decision: the NASA credential is published as
   `certificates/nasa-space-apps-challenge-2026.png`; the PDF added in the previous
   commit is removed rather than kept as a second copy of the same credential.
+- **L5** (verbatim correction): «abre cada pdf si es necesario pero que se vean todos bien para que el que lo vea lo vea bien»
+  Decision: `#zoom=100` fixed the percentage but the underlying problem was the PDF viewer
+  itself — page formats differ, so a fixed zoom leaves a portrait A4 cropped and a 1200 pt wide
+  page spilling sideways. Every card now links a PNG render (1400 px long edge, 1200 for the two
+  OpenIT scans so they are not invented) and the browser fits it to the window. The original PDFs
+  stay in `certificates/` as the source of the render.

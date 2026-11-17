@@ -34,6 +34,9 @@
   file there instead of hotlinking a CDN.
 - Certificate files use lowercase kebab-case names that describe the document:
   `<topic>-<issuer>.<ext>`. No spaces, UUIDs or personal email in a file name.
+- A card links the PNG render of the page (`<topic>-<issuer>.png`), never the PDF: page formats
+  differ (A4 portrait, letter landscape, 930×630), so PDF links open at a different zoom each time.
+  Render with `pdftoppm -png -scale-to 1400 <src>.pdf <name>`; keep the PDF beside it as the source.
 - Fonts load through a `<link rel="stylesheet">` in `<head>`; never `@import` in CSS.
 
 ## General

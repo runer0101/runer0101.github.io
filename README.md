@@ -23,8 +23,10 @@ theme, scroll animations.
 ## Assets
 
 - `icons/` — self-hosted technology icons, referenced as `icons/<name>.svg`. No CDN hotlinks.
-- `certificates/` — the PDF or image of each credential. File names are lowercase kebab-case and
-  describe what the document actually is: `<topic>-<issuer>.<ext>`.
+- `certificates/` — each credential as a PNG render at 1400 px on the long edge, with the original
+  PDF beside it as the source. Cards link the image, so every certificate opens fitted to the
+  window whatever its page format. File names are lowercase kebab-case:
+  `<topic>-<issuer>.png`.
 - `og-image.png` — 1200×630 social preview.
 - Fonts are the only external request: Space Mono and Syne from Google Fonts.
 
