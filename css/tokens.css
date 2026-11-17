@@ -1,0 +1,32 @@
+/* Every colour in the site comes from here. A theme only redefines tokens,
+   so components never need to know which theme is active. */
+:root {
+    color-scheme: dark;
+    --bg: #0a0a0f;
+    --bg2: #111118;
+    --text: #e8e8f0;
+    --text-dim: #888899;
+    --border: #222233;
+    --accent: #00ff88;
+    --accent2: #0088ff;
+    --nav-bg: rgba(10, 10, 15, 0.85);
+    --nav-bg-scrolled: rgba(10, 10, 15, 0.95);
+    --shadow: rgba(0, 0, 0, 0.5);
+    --radius: 12px;
+}
+
+/* Light theme: the dark accents are unreadable on white, so the light palette
+   keeps the identity with deeper greens and blues. */
+[data-theme="light"] {
+    color-scheme: light;
+    --bg: #f5f6fa;
+    --bg2: #ffffff;
+    --text: #14161d;
+    --text-dim: #5b6274;
+    --border: #dde1ea;
+    --accent: #00804a;
+    --accent2: #0057c2;
+    --nav-bg: rgba(245, 246, 250, 0.85);
+    --nav-bg-scrolled: rgba(245, 246, 250, 0.95);
+    --shadow: rgba(20, 22, 29, 0.12);
+}

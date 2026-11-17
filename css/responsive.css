@@ -1,0 +1,220 @@
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    section {
+        padding: 4rem 1.25rem;
+    }
+
+    nav {
+        padding: 0.8rem 1.25rem;
+    }
+
+    #menuToggle {
+        display: flex;
+    }
+
+    nav ul {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 320px;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        background: rgba(10, 10, 15, 0.97);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-left: 1px solid var(--border);
+        transition: right 0.35s ease;
+    }
+
+    nav ul.open {
+        right: 0;
+    }
+
+    nav ul a {
+        font-size: 1.1rem;
+    }
+
+    /* Without JavaScript the off-canvas panel can never open, so the links
+       flow inside the nav and the hamburger is not rendered. The .js panel
+       above stays untouched. */
+    html.no-js #menuToggle {
+        display: none;
+    }
+
+    html.no-js nav {
+        flex-wrap: wrap;
+        row-gap: 0.35rem;
+    }
+
+    html.no-js .nav-actions {
+        order: 2;
+    }
+
+    html.no-js nav ul {
+        order: 3;
+        position: static;
+        right: auto;
+        width: 100%;
+        max-width: none;
+        height: auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.25rem 1.25rem;
+        background: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border-left: 0;
+        transition: none;
+    }
+
+    html.no-js nav ul a {
+        font-size: 0.85rem;
+    }
+
+    #hero {
+        align-items: center;
+        text-align: center;
+    }
+
+    #hero .tagline {
+        text-align: center;
+    }
+
+    #hero::after {
+        display: none;
+    }
+
+    h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #about,
+    #skills,
+    #certificates,
+    #projects {
+        text-align: center;
+    }
+
+    #about .about-content {
+        text-align: left;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+    .certificates-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .certs-category {
+        font-size: 1rem;
+    }
+
+    #contact h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 3rem 1rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .certificates-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .certificate-card {
+        grid-template-columns: 1fr;
+        padding: 1.2rem;
+    }
+
+    /* The section centres its text at this width; the actions follow it. */
+    .certificate-card .cert-actions {
+        justify-content: center;
+    }
+
+    .contact-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-link {
+        width: 100%;
+        justify-content: center;
+    }
+
+    footer {
+        font-size: 0.7rem;
+        padding: 1.5rem 1rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.6rem;
+    }
+
+    .skill-card {
+        padding: 1rem 0.5rem;
+    }
+
+    .skill-card .skill-icon svg,
+    .skill-card .skill-icon img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .skill-card .skill-name {
+        font-size: 0.75rem;
+    }
+
+    .project-card {
+        padding: 1.2rem;
+    }
+
+    .btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .js .reveal,
+    .js .reveal-children > * {
+        opacity: 1;
+        transform: none;
+    }
+}
+

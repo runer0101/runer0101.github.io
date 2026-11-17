@@ -1,0 +1,51 @@
+/* ============================================
+   PRINT
+   ============================================ */
+@media print {
+    nav,
+    .skip-link,
+    #langBtn,
+    #menuToggle,
+    #hero::after,
+    body::before {
+        display: none !important;
+    }
+
+    body {
+        background: #fff;
+        color: #000;
+        font-size: 12pt;
+    }
+
+    section {
+        padding: 1.5rem 0;
+        max-width: 100%;
+        break-inside: avoid;
+    }
+
+    .skill-card,
+    .certificate-card,
+    .project-card,
+    .contact-link {
+        background: #f5f5f5;
+        border: 1px solid #ccc;
+        break-inside: avoid;
+    }
+
+    a {
+        color: #0066cc;
+        text-decoration: underline;
+    }
+
+    .reveal,
+    .reveal-children > * {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .certificate-card .cert-actions .cert-link {
+        border: 0;
+        padding: 0;
+        color: #0066cc;
+    }
+}

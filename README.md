@@ -5,6 +5,34 @@ theme, scroll animations.
 
 **[runer0101.github.io](https://runer0101.github.io)**
 
+## Structure
+
+```
+index.html            structure only
+css/
+  tokens.css          colours and radius, dark and light
+  base.css            reset, typography, reveal, scrollbar
+  layout.css          header, navigation, hero, sections, footer
+  components.css      cards, buttons, grids
+  responsive.css      media queries, reduced motion
+  print.css           print
+js/
+  main.js             entry point
+  storage.js          guarded localStorage
+  i18n.js             language state and swaps
+  nav.js              menu, header state, active section
+  reveal.js           scroll reveal
+  theme.js            dark/light control
+icons/                self-hosted technology icons
+certificates/         credential images and their PDFs
+```
+
+## Themes
+
+Dark is the default and follows the operating system on a first visit; the control in the header
+switches mode, remembers the choice and sets the attribute before the first paint so the page never
+flashes the wrong theme. Both themes come from the same tokens in `css/tokens.css`.
+
 ## Stack
 
 `HTML` `CSS` `JavaScript` `IntersectionObserver` `CSS Custom Properties`
@@ -44,7 +72,8 @@ theme, scroll animations.
 
 ## Local preview
 
-No build step: open `index.html`, or serve the folder with `python3 -m http.server`.
+No build step, but the scripts are ES modules: serve the folder with `python3 -m http.server` and
+open the local URL. Opening `index.html` from the filesystem no longer runs the scripts.
 
 ## Publishing
 
