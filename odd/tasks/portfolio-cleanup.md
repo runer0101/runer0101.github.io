@@ -53,3 +53,7 @@ file it links to, and the page must stay readable without JavaScript.
 - **L3** (decision): PDF text is authoritative over the card. Where the certificate itself
   contains a typo (Cisco prints "Cesa Camacho Duran"), the card keeps the correct name and the
   discrepancy is reported to the maintainer, not reproduced.
+- **L4** (verbatim correction): «puse el mismo certificcado pero en png lo vi fejor de como se ve el otro en pdf»
+  Decision: the NASA credential is published as
+  `certificates/nasa-space-apps-challenge-2026.png`; the PDF added in the previous
+  commit is removed rather than kept as a second copy of the same credential.
