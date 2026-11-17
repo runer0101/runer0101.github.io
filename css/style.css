@@ -684,10 +684,6 @@ footer {
     font-size: 0.8rem;
 }
 
-#certificates .certificates-grid .certificate-card:only-of-type {
-    max-width: 450px;
-}
-
 /* ============================================
    ANIMATIONS
    ============================================ */
@@ -787,6 +783,45 @@ footer {
 
     nav ul a {
         font-size: 1.1rem;
+    }
+
+    /* Without JavaScript the off-canvas panel can never open, so the links
+       flow inside the nav and the hamburger is not rendered. The .js panel
+       above stays untouched. */
+    html.no-js #menuToggle {
+        display: none;
+    }
+
+    html.no-js nav {
+        flex-wrap: wrap;
+        row-gap: 0.35rem;
+    }
+
+    html.no-js #langBtn {
+        order: 2;
+        margin-right: 0;
+    }
+
+    html.no-js nav ul {
+        order: 3;
+        position: static;
+        right: auto;
+        width: 100%;
+        max-width: none;
+        height: auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.25rem 1.25rem;
+        background: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border-left: 0;
+        transition: none;
+    }
+
+    html.no-js nav ul a {
+        font-size: 0.85rem;
     }
 
     #langBtn {
