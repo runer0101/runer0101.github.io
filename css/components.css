@@ -66,6 +66,8 @@
     font-size: 1.15rem;
     font-weight: 600;
     line-height: 1.45;
+    padding-bottom: 0.12em;
+    overflow: visible;
     color: var(--accent);
     margin: 2rem 0 1rem;
 }

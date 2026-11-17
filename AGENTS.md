@@ -24,6 +24,10 @@ JavaScript is ES modules with one concern each, behind `js/main.js`:
   script in `<head>`.
 - `js/main.js` — entry point.
 
+Every stylesheet link and the module entry carry a `?v=` token in `index.html`. A static site
+served by GitHub Pages caches those files, so a visitor keeps a stale sheet until it expires; bump
+the token whenever a stylesheet or a module changes, and returning visitors get the new file.
+
 Because these are modules, the site must be served over HTTP (`python3 -m http.server`); opening the
 file directly no longer runs the scripts.
 
