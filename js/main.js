@@ -4,7 +4,30 @@
     /* ============================================
        STATE
        ============================================ */
-    var lang = localStorage.getItem("lang") || "es";
+    var STORAGE_KEY = "lang";
+    var TEXT = {
+        es: { open: "Abrir menú", close: "Cerrar menú", switchTo: "Cambiar idioma a inglés" },
+        en: { open: "Open menu", close: "Close menu", switchTo: "Switch language to Spanish" }
+    };
+
+    function readLang() {
+        try {
+            return localStorage.getItem(STORAGE_KEY) === "en" ? "en" : "es";
+        } catch (e) {
+            /* Storage can be blocked; the page still works in Spanish. */
+            return "es";
+        }
+    }
+
+    function storeLang(value) {
+        try {
+            localStorage.setItem(STORAGE_KEY, value);
+        } catch (e) {
+            /* Same as above: the switch works for this page view only. */
+        }
+    }
+
+    var lang = readLang();
 
     /* ============================================
        DOM ELEMENTS
@@ -19,16 +42,27 @@
        ============================================ */
     function setLang(nextLang) {
         lang = nextLang;
-        localStorage.setItem("lang", lang);
-        langBtn.textContent = lang === "es" ? "EN" : "ES";
+        storeLang(lang);
         document.documentElement.lang = lang;
+
+        langBtn.textContent = lang === "es" ? "EN" : "ES";
+        langBtn.setAttribute("aria-label", TEXT[lang].switchTo);
 
         var elements = document.querySelectorAll("[data-es][data-en]");
         for (var i = 0; i < elements.length; i++) {
-            var el = elements[i];
-            var attr = "data-" + lang;
-            el.innerHTML = el.getAttribute(attr);
+            elements[i].innerHTML = elements[i].getAttribute("data-" + lang);
         }
+
+        // Title, description and Open Graph carry their text in a content attribute.
+        var metaElements = document.querySelectorAll("[data-es-content][data-en-content]");
+        for (var m = 0; m < metaElements.length; m++) {
+            metaElements[m].setAttribute(
+                "content",
+                metaElements[m].getAttribute("data-" + lang + "-content")
+            );
+        }
+
+        updateMenuLabel();
     }
 
     langBtn.addEventListener("click", function () {
@@ -36,52 +70,46 @@
     });
 
     /* ============================================
-       INITIAL LANGUAGE SETUP
-       ============================================ */
-    if (lang !== "es") {
-        setLang(lang);
-    } else {
-        langBtn.textContent = "EN";
-    }
-
-    /* ============================================
        MOBILE MENU
        ============================================ */
-    menuToggle.addEventListener("click", function () {
-        var isOpen = navLinks.classList.toggle("open");
-        menuToggle.classList.toggle("open", isOpen);
+    function isMenuOpen() {
+        return navLinks.classList.contains("open");
+    }
+
+    function updateMenuLabel() {
         menuToggle.setAttribute(
             "aria-label",
-            isOpen
-                ? (lang === "es" ? "Cerrar menú" : "Close menu")
-                : (lang === "es" ? "Abrir menú" : "Open menu")
+            isMenuOpen() ? TEXT[lang].close : TEXT[lang].open
         );
+    }
+
+    function setMenuOpen(open) {
+        navLinks.classList.toggle("open", open);
+        menuToggle.classList.toggle("open", open);
+        menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+        updateMenuLabel();
+    }
+
+    menuToggle.addEventListener("click", function () {
+        setMenuOpen(!isMenuOpen());
     });
 
     // Close menu when clicking a nav link
     navLinks.querySelectorAll("a").forEach(function (link) {
         link.addEventListener("click", function () {
-            navLinks.classList.remove("open");
-            menuToggle.classList.remove("open");
+            setMenuOpen(false);
         });
     });
 
     /* ============================================
        NAV SCROLL EFFECT
        ============================================ */
-    var lastScrollY = window.scrollY;
-
     function onScroll() {
-        var scrollY = window.scrollY;
-
-        // Add "scrolled" class when past hero
-        if (scrollY > 50) {
+        if (window.scrollY > 50) {
             nav.classList.add("scrolled");
         } else {
             nav.classList.remove("scrolled");
         }
-
-        lastScrollY = scrollY;
     }
 
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -104,12 +132,10 @@
             if (entries[i].isIntersecting) {
                 var id = entries[i].target.getAttribute("id");
 
-                // Remove active from previous
                 if (activeLink) {
                     activeLink.classList.remove("active");
                 }
 
-                // Add active to current
                 var link = navLinks.querySelector('a[data-section="' + id + '"]');
                 if (link) {
                     link.classList.add("active");
@@ -155,11 +181,14 @@
        KEYBOARD SUPPORT: Close menu with Escape
        ============================================ */
     document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape" && navLinks.classList.contains("open")) {
-            navLinks.classList.remove("open");
-            menuToggle.classList.remove("open");
+        if (e.key === "Escape" && isMenuOpen()) {
+            setMenuOpen(false);
             menuToggle.focus();
         }
     });
 
+    /* ============================================
+       INITIAL LANGUAGE SETUP
+       ============================================ */
+    setLang(lang);
 })();
