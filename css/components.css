@@ -3,8 +3,9 @@
    ============================================ */
 #skills .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(130px, 152px));
     gap: 1rem;
+    justify-content: start;
 }
 
 .skill-card {
@@ -56,6 +57,62 @@
     font-size: 0.85rem;
     font-weight: 700;
     color: var(--text);
+}
+
+/* Each area states its specialty first; the rest of the stack follows as a
+   smaller row, so the page says what he is strong in before what he has used. */
+.skill-specialty {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    margin-bottom: 1rem;
+}
+
+.skill-specialty strong {
+    color: var(--text);
+    font-weight: 700;
+}
+
+.skills-also {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin: 1.4rem 0 0.6rem;
+}
+
+#skills .skills-grid--compact {
+    grid-template-columns: repeat(auto-fill, minmax(108px, 128px));
+    gap: 0.7rem;
+}
+
+.skills-grid--compact .skill-card {
+    padding: 0.9rem 0.6rem;
+}
+
+.skills-grid--compact .skill-icon svg,
+.skills-grid--compact .skill-icon img {
+    width: 26px;
+    height: 26px;
+}
+
+.skills-grid--compact .skill-name {
+    font-size: 0.72rem;
+}
+
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skills-tags span {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--text-dim);
+    background: var(--bg2);
 }
 
 /* ============================================
